@@ -273,7 +273,9 @@ open class Parser {
         if let captures = captures {
             for index in captures.captureIndexes {
                 if result.numberOfRanges <= Int(index) {
+                    #if DEBUG
                     print("Attention unexpected capture (\(index) to \(result.numberOfRanges)): \(expression.pattern)")
+                    #endif
                     continue
                 }
                 let range = result.range(at: Int(index))
